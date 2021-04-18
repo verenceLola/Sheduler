@@ -169,6 +169,8 @@ class Peers {
 
     getHtml = () => {
         const content = document.createElement('div');
+        content.className = 'peers-content';
+
         this.options.forEach(option => {
             const peer = new Peer(option);
             content.appendChild(peer.getHtml());

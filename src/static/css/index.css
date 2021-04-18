@@ -1,5 +1,4 @@
 .header {
-    width: 1280px;
     height: 70px;
     margin: 0 0 29px;
     background-color: #498fe4;
@@ -11,7 +10,6 @@ body {
 }
 
 .container {
-width: 1280px;
   height: 1254px;
   padding: 0 80px;
   background-color: #fbfbfb;
@@ -208,4 +206,10 @@ width: 1280px;
     background-color: white;
     cursor: pointer;
     outline: none;
+}
+
+.peers-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
 }
