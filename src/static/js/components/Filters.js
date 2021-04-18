@@ -2,7 +2,7 @@ import EventStore from "../utils/event.js";
 import { Filtering } from "../utils/index.js";
 
 
-const DEFAULT_ACTIVE_FILTER = [1, 3];
+const DEFAULT_ACTIVE_FILTER = [0];
 
 class Filter {
     constructor(anchor, options){
