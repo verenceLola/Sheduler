@@ -1,6 +1,5 @@
 class Peer {
-    constructor(anchor, options){
-        this.anchor = anchor;
+    constructor(options){
         this.options = options;
     }
 
@@ -162,5 +161,22 @@ class BookButton {
     }
 }
 
+class Peers {
+    constructor(anchorElement, options){
+        this.options = options;
+        this.anchorElement = anchorElement;
+    }
 
-export default Peer;
+    getHtml = () => {
+        const content = document.createElement('div');
+        this.options.forEach(option => {
+            const peer = new Peer(option);
+            content.appendChild(peer.getHtml());
+        });
+
+        return content;
+    }
+}
+
+
+export default Peers;

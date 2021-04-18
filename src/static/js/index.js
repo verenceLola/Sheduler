@@ -1,4 +1,4 @@
-import { FilterComponent,PeerComponent, GreetingComponent } from './components/index.js'
+import { FilterComponent,PeersComponent, GreetingComponent } from './components/index.js'
 
 const components = [
     {
@@ -13,8 +13,8 @@ const components = [
     },
     {
         selector: '.content',
-        view: PeerComponent,
-        options: {
+        view: PeersComponent,
+        options: [{
             "image":"https://cdn.shopify.com/s/files/1/0417/7869/files/Mark.png",
             "name":"Mark S.",
             "last_login":"Logged in today",
@@ -40,7 +40,7 @@ const components = [
             "sessions":6,
             "years_of_experience":3,
             "location":"North America"
-         },
+         },]
     }
 ]
 
