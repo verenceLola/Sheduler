@@ -32,11 +32,7 @@ class PeerOverview{
         const content = document.createElement('div');
         content.className = 'peer-overview-content';
 
-        const avatar = document.createElement('div');
-        avatar.className = 'avatar';
-        const avatarImage = document.createElement('img');
-        avatarImage.src = image;
-        avatar.appendChild(avatarImage);
+        const avatar = this.getPeerAvatar(image, name);
 
         const peerInfo = document.createElement('div');
         peerInfo.className = "peer-info";
@@ -55,6 +51,32 @@ class PeerOverview{
         content.appendChild(peerInfo)
 
         return content;
+    }
+
+    getPeerAvatar = (image, peerName) => {
+        const avatar = document.createElement('div');
+        avatar.className = 'avatar';
+        const avatarImage = document.createElement('img');
+        avatarImage.src = image;
+
+        const avatarImagePlaceHolder = document.createElement('span');
+        avatarImagePlaceHolder.innerText = this.extractPeerInitials(peerName);
+        avatarImagePlaceHolder.className = 'peer-avartar-placeholder';
+
+        avatarImage.onerror = () => {
+            avatar.appendChild(avatarImagePlaceHolder);
+        }
+        avatarImage.onload = () => {
+            avatar.appendChild(avatarImage);
+        }
+
+        return avatar;
+    }
+
+    extractPeerInitials = peerName => {
+        const names = peerName.split(' ');
+
+        return `${names[0][0]}${names[1][0]}`
     }
 }
 
@@ -156,8 +178,8 @@ class BookButton {
         return button;
     }
 
-    onButtonClick = event => {
-        console.log(event.target);
+    onButtonClick = () => {
+        alert("Peer Booked Succesfully");
     }
 }
 

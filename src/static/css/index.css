@@ -10,7 +10,6 @@ body {
 }
 
 .container {
-  height: 1254px;
   padding: 0 80px;
   background-color: #fbfbfb;
 }
@@ -96,9 +95,30 @@ body {
     padding: 20px;
 }
 
-.avatar img {
+.avatar {
     width: 72px;
     height: 72px;
+    align-items: center;
+    background-color: #eeeeee;
+    border-radius: 50%;
+    justify-content: center;
+    display: flex;
+}
+
+.peer-avartar-placeholder {
+    font-family: OpenSans;
+    font-size: 18px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.56;
+    letter-spacing: -0.1px;
+    color: #aaaaaa;
+}
+
+.avatar img {
+    height: 100%;
+    width: 100%;
 }
 
 .peer-info {
