@@ -2,7 +2,7 @@ import EventStore from "../utils/event.js";
 import { Filtering } from "../utils/index.js";
 
 
-const DEFAULT_ACTIVE_FILTER = 0;
+const DEFAULT_ACTIVE_FILTER = [1, 3];
 
 class Filter {
     constructor(anchor, options){
@@ -25,8 +25,8 @@ class Filter {
         filterDays.className = "filter-days";
 
         filterButtons.map((button, index) => {
-            if (index === this.activeFilterIndex){
-                button.id = 'active-filter-day';
+            if (this.activeFilterIndex.includes(index)){
+                button.classList.add('active-filter-day')
             }
             filterDays.append(button)
         });
@@ -38,24 +38,25 @@ class Filter {
     }
 
     onFilterButtonClick = ({target}, index) => {
-        const previouslyActiveFilter = document.getElementById('active-filter-day');
-        previouslyActiveFilter.id = null;
-        this.activeFilterIndex = index;
+        target.classList.toggle('active-filter-day');
+        const activeFilters = document.getElementsByClassName('active-filter-day');
+        
+        this.activeFilterIndex = Array.from(activeFilters).map(activeFilter => parseInt(activeFilter.getAttribute('data-day-index')));
 
-        target.id = 'active-filter-day';
         const filteredData =  this.filterData(this.options.peers)
         EventStore.getInstance().dispatchEvent(filteredData);
     }
 
     filterData = data => {
-        const activeDay = this.buttonLabels[this.activeFilterIndex];
+        const activeDays = this.buttonLabels.filter((_value, index) => this.activeFilterIndex.includes(index))
         const filteredData = data.filter(datum => {
             const availableDays = Filtering.getAvailableDays(datum.availability);
 
-            if (activeDay === 'All'){
+            if (activeDays.includes('All')){
                 return true;
             }
-            return availableDays.includes(activeDay)
+
+            return availableDays.some(day => activeDays.includes(day));
         })
 
         return filteredData;
@@ -64,6 +65,7 @@ class Filter {
     generateFilterButtons = () => this.buttonLabels.map((label, index) => {
         const labelElement = document.createElement("label");
         labelElement.className = 'filter-day-label';
+        labelElement.setAttribute('data-day-index', index);
         labelElement.textContent = label;
         labelElement.onclick = event => this.onFilterButtonClick(event, index);
 

@@ -52,7 +52,7 @@ body {
     user-select: none;
 }
 
-#active-filter-day {
+label.active-filter-day {
     background-color: #007bca;
     color: #ffffff;
     cursor: pointer;
