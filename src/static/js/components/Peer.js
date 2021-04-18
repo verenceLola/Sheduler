@@ -120,7 +120,7 @@ class SessionInfo {
 
         const availabilityInfo = this.createInfoElement('/src/static/assets/icons/Availability.svg', `Availble on ${availableDays.join(', ')}`);
         const targetCompanies = this.createInfoElement("/src/static/assets/icons/Targeting.svg", `Targeting ${companies.join(', ')}`);
-        const sessionsInfo = this.createInfoElement("/src/static/assets/icons/Sessions.svg", `${sessions} sessions booked`);
+        const sessionsInfo = this.createInfoElement("/src/static/assets/icons/Sessions.svg", `${sessions} session${sessions === 1 ? '' : 's'} booked`);
         const yearsOfExperienceInfo = this.createInfoElement("/src/static/assets/icons/Experience.svg", `${yearsOfExperience} years of experience`);
         const locationInfo = this.createInfoElement("/src/static/assets/icons/Location.svg", location);
 

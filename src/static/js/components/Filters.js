@@ -1,4 +1,4 @@
-class Filter{
+class Filter {
     constructor(anchor, options){
         this.anchor = anchor;
         this.options = options;
