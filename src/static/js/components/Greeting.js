@@ -8,7 +8,7 @@ class Greeting {
     getHtml = () => {
         const {name = "Patrik"} = this.options;
         const content = document.createElement('p');
-        content.innerText = `Hi ${name}, shedule your next practice session with a peer`
+        content.innerText = `Hi ${name}, schedule your next practice session with a peer`
 
         return content;
     }

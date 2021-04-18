@@ -54,6 +54,12 @@ body {
     user-select: none;
 }
 
+#active-filter-day {
+    background-color: #007bca;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 .filter-day-label {
     margin: 10px 8px 1px;
     padding: 6px 12px;
