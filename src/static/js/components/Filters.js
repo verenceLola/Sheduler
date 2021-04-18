@@ -34,12 +34,8 @@ class Filter{
         return buttonLabels.map(label => {
             const labelElement = document.createElement("label");
             labelElement.className = 'filter-day-label';
-
-            const spanElement = document.createElement('span');
-            labelElement.appendChild(spanElement);
-            spanElement.textContent = label;
-            spanElement.className = "filter-button"
-            spanElement.onclick = this.onFilterButtonClick
+            labelElement.textContent = label;
+            labelElement.onclick = this.onFilterButtonClick
 
             return labelElement;
         });

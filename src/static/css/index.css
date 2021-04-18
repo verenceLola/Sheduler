@@ -37,7 +37,6 @@ width: 1280px;
 }
 
 .filter-label {
-    width: 172px;
     height: 20px;
     margin: 0 59px 10px 1px;
     font-family: OpenSans;
@@ -48,6 +47,7 @@ width: 1280px;
     line-height: 1.67;
     letter-spacing: normal;
     color: #aaaaaa;
+    text-transform: uppercase;
 }
 
 .filter-day-label:hover {
@@ -58,18 +58,11 @@ width: 1280px;
 }
 
 .filter-day-label {
-    width: 55px;
-    height: 32px;
     margin: 10px 8px 1px;
     padding: 6px 12px;
     box-shadow: 0 1px 2px 0 rgba(51, 51, 51, 0.12);
     background-color: #ffffff;
     color: #498fe4;
-}
-
-.filter-button {
-    width: 31px;
-    height: 20px;
     font-family: OpenSans;
     font-size: 12px;
     font-weight: bold;
@@ -77,4 +70,142 @@ width: 1280px;
     font-style: normal;
     line-height: 1.67;
     letter-spacing: normal;
+    text-transform: uppercase;
+}
+
+.filter-days {
+    display: flex;
+}
+
+.content {
+    margin-top: 49px;
+}
+
+.peers {
+    padding: 20px;
+    width: 268px;
+    height: 451px;
+    margin: 0 15px 16px 0;
+    object-fit: contain;
+    background-color: #ffffff;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 1px 2px 0 rgba(51, 51, 51, 0.12);
+}
+
+.peer-overview-content {
+    display: flex;
+    padding: 20px;
+}
+
+.avatar img {
+    width: 72px;
+    height: 72px;
+}
+
+.peer-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 16px;
+}
+
+.peer-name {
+    font-family: OpenSans;
+    font-size: 20px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: -0.08px;
+    color: #333333;
+}
+
+.peer-last-login {
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: #666666;
+}
+
+
+.peer-about-label {
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    color: #aaaaaa;
+    text-transform: uppercase;
+}
+
+.peer-about-content {
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #333333;
+}
+
+
+.peer-info-item img {
+    width: 16px;
+    height: 16px;
+    margin-right: 10px;
+}
+
+.peer-info-item {
+    align-items: center;
+    display: flex;
+}
+
+.peer-info-description {
+    font-family: OpenSans;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: #333333;
+}
+
+.peer-session-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: inherit;
+}
+
+.peer-hr {
+    width: 228px;
+    height: 1px;
+    background-color: #eeeeee;
+    border: none;
+}
+
+.book-me {
+    font-family: OpenSans;
+    font-size: 12px;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.67;
+    letter-spacing: normal;
+    text-align: center;
+    color: #007bca;
+    text-transform: uppercase;
+    border: none;
+    background-color: white;
+    cursor: pointer;
+    outline: none;
 }
