@@ -92,10 +92,12 @@ class SessionInfo {
     getHtml = () => {
         const {sessions, years_of_experience: yearsOfExperience, location, companies, availability} = this.options;
 
+        const availableDays = this.getAvailableDays(availability);
+
         const content = document.createElement('div');
         content.className = 'peer-session-info';
 
-        const availabilityInfo = this.createInfoElement('/src/static/assets/icons/Availability.svg', 'Availble on Mon, Tue');
+        const availabilityInfo = this.createInfoElement('/src/static/assets/icons/Availability.svg', `Availble on ${availableDays.join(', ')}`);
         const targetCompanies = this.createInfoElement("/src/static/assets/icons/Targeting.svg", `Targeting ${companies.join(', ')}`);
         const sessionsInfo = this.createInfoElement("/src/static/assets/icons/Sessions.svg", `${sessions} sessions booked`);
         const yearsOfExperienceInfo = this.createInfoElement("/src/static/assets/icons/Experience.svg", `${yearsOfExperience} years of experience`);
@@ -104,6 +106,24 @@ class SessionInfo {
         content.append(availabilityInfo, targetCompanies, sessionsInfo, yearsOfExperienceInfo, locationInfo);
 
         return content;
+    }
+
+    getAvailableDays = peerAvailability => {
+        const DATE_OPTIONS = {weekday: 'short'};
+
+        const availbleDays = peerAvailability.map(timeSlot => {
+            const {start, end} = timeSlot;
+
+            const startDate = new Date(start)
+            const endDate = new Date(end);
+            const availbleHours = Math.round(endDate.getHours() - startDate.getHours());
+
+            if (availbleHours >= 1){
+                return new Intl.DateTimeFormat('en-EU', DATE_OPTIONS).format(startDate);
+            }
+        })
+
+        return Array.from(new Set(availbleDays));
     }
 
     createInfoElement = (iconPath, info) => {
