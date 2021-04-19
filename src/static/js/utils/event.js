@@ -13,7 +13,6 @@ class EventStore {
             const {view, viewClass} = value;
 
             if (view?.nodeName){
-                window.value = value
                 view.addEventListener('update', event => this.onUpdateComponent(event, viewClass));
             }
 
